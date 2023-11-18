@@ -15,15 +15,15 @@ def main():
     with _MongoContextMgr(env.args.uri, env.args.drop_db) as db:
         env.db = db
         user.update_user_colls()
-        games = game.update_game_colls()
-        tour.update_tour_colls()
-        posts = forum.update_forum_colls()
-        teams = team.update_team_colls()
-        msg.update_msg_colls()
-        blog.update_blog_colls()
-        event.update_event_colls()
+        #games = game.update_game_colls()
+        #tour.update_tour_colls()
+        #posts = forum.update_forum_colls()
+        #teams = team.update_team_colls()
+        #msg.update_msg_colls()
+        #blog.update_blog_colls()
+        #event.update_event_colls()
         if env.args.es:
-            search.update_elasticsearch(env.args.es_host, games, posts, teams)
+            search.update_elasticsearch(env.args.es_host)
 
 class _MongoContextMgr:
     def __init__(self, uri, drop_db=False):
